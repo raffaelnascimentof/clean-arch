@@ -1,0 +1,45 @@
+### Criar uma Order (REST)
+POST http://localhost:8000/order
+Content-Type: application/json
+
+{
+  "price": 100.50,
+  "tax": 10.05
+}
+
+###
+
+### Listar Orders (REST)
+GET http://localhost:8000/order
+
+###
+
+### Criar Order com ID customizado (REST)
+POST http://localhost:8000/order
+Content-Type: application/json
+
+{
+  "id": "order-001",
+  "price": 250.00,
+  "tax": 25.00
+}
+
+###
+
+### GraphQL - Criar Order
+POST http://localhost:8080/query
+Content-Type: application/json
+
+{
+  "query": "mutation { createOrder(input: { price: 150.0, tax: 15.0 }) { id price tax finalPrice } }"
+}
+
+###
+
+### GraphQL - Listar Orders
+POST http://localhost:8080/query
+Content-Type: application/json
+
+{
+  "query": "query { listOrders { id price tax finalPrice } }"
+}
